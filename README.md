@@ -1,0 +1,2 @@
+# Rosetta.VeraPDF
+VeraPDF MDExtractorPlugin 
