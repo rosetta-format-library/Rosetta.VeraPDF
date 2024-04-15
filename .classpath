@@ -2,18 +2,16 @@
 <classpath>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
-	<classpathentry kind="lib" path="lib/core-1.14.103.jar" sourcepath="C:/Selenium Download/core-1.14.103-sources.jar"/>
-	<classpathentry kind="lib" path="lib/parser-1.14.103.jar"/>
-	<classpathentry kind="lib" path="lib/pdf-model-1.14.102.jar"/>
-	<classpathentry kind="lib" path="lib/pdfbox-metadata-fixer-1.14.104.jar"/>
-	<classpathentry kind="lib" path="lib/verapdf-xmp-core-1.14.103.jar"/>
-	<classpathentry kind="lib" path="lib/validation-model-1.14.104.jar"/>
-	<classpathentry kind="lib" path="lib/pdfbox-feature-reporting-1.14.105.jar"/>
-	<classpathentry kind="lib" path="lib/dps-sdk-6.2.0.jar"/>
-	<classpathentry kind="lib" path="lib/commons-lang-2.6.jar"/>
-	<classpathentry kind="lib" path="lib/commons-io-2.0.1.jar"/>
-	<classpathentry kind="lib" path="lib/jhove-1.10.jar"/>
-	<classpathentry kind="lib" path="lib/jhove-handler-1.10.jar"/>
-	<classpathentry kind="lib" path="lib/jhove-module-1.10.jar"/>
+	<classpathentry kind="lib" path="lib/core-1.24.1.jar"/>
+	<classpathentry kind="lib" path="lib/parser-1.24.1.jar"/>
+	<classpathentry kind="lib" path="lib/pdf-model-1.24.1.jar"/>
+	<classpathentry kind="lib" path="lib/pdfbox-metadata-fixer-1.24.1.jar"/>
+	<classpathentry kind="lib" path="lib/verapdf-xmp-core-1.24.1.jar"/>
+	<classpathentry kind="lib" path="lib/validation-model-1.24.1.jar"/>
+	<classpathentry kind="lib" path="lib/pdfbox-feature-reporting-1.24.1.jar"/>
+	<classpathentry kind="lib" path="lib/dps-sdk-8.1.0.jar"/>
+	<classpathentry kind="lib" path="lib/commons-lang3-3.14.0.jar"/>
+	<classpathentry kind="lib" path="lib/commons-io-2.15.1.jar"/>
+	<classpathentry kind="lib" path="lib/js-1.7R1.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

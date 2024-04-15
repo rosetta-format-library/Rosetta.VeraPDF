@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project basedir="." default="build-all" name="MDExtractor-plugins">
+	<property environment="env"/>
+	<property name="ECLIPSE_HOME" value="../../dev/eclipse"/>
+	<property name="debuglevel" value="source,lines,vars"/>
+	<property name="target" value="1.8"/>
+	<property name="source" value="1.8"/>
+	<property name="version" value="8.1.0"/>
+	<property name="pluginVersion" value="1.0"/>
+	<path id="MDExtractor-plugins.classpath">
+		<pathelement location="lib/dps-sdk-${version}.jar"/>
+		<fileset dir="lib" includes="*.jar"/>
+	</path>
+	<target depends="clean-all, prepare-dirs, copy-resources, build-VeraPDFValidatorPlugin" name="build-all"/>
+	<target depends="clean-all, prepare-dirs, copy-resources" name="build-VeraPDFValidatorPlugin">
+		<echo message="${ant.project.name}: ${ant.file}"/>
+		<javac debug="true" debuglevel="${debuglevel}" destdir="./target" source="${source}" target="${target}">
+			<src path="src"/>
+			<classpath refid="MDExtractor-plugins.classpath"/>
+		</javac>
+		<jar destfile="./generated-plugins/VeraPDFValidatorPlugin-${pluginVersion}.jar">
+			<fileset dir="target" includes="org/verapdf/pdfa/validation/profiles/*.class, com/exlibris/rosetta/repository/plugin/formatValidator/pdf/*.class, PLUGIN-INF/metadata_VeraPDFValidatorPlugin.xml"/>
+			<fileset dir="." includes="lib/*,org/**/**,font/**/**" excludes="lib/dps-sdk*.jar"/>
+		</jar>
+	</target>
+	<target name="prepare-dirs">
+		<mkdir dir="target"/>
+		<mkdir dir="generated-plugins"/>
+	</target>
+	<target name="clean-all">
+		<delete dir="./target"/>
+		<delete dir="./generated-plugins"/>
+	</target>
+	<target name="copy-resources">
+		<copy todir="./target">
+			<fileset dir="resources"/>
+			<fileset dir="." includes="lib/*.jar"/>
+		</copy>
+	</target>
+	<target description="copy Eclipse compiler jars to ant lib directory" name="init-eclipse-compiler">
+		<copy todir="${ant.library.dir}">
+			<fileset dir="${ECLIPSE_HOME}/plugins" includes="org.eclipse.jdt.core_*.jar"/>
+		</copy>
+		<unzip dest="${ant.library.dir}">
+			<patternset includes="jdtCompilerAdapter.jar"/>
+			<fileset dir="${ECLIPSE_HOME}/plugins" includes="org.eclipse.jdt.core_*.jar"/>
+		</unzip>
+	</target>
+</project>

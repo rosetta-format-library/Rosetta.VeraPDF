@@ -1,0 +1,31 @@
+<pl:metadata-config xmlns:pl="http://www.exlibrisgroup.com/Plugins/1.0/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
+  <pl:pluginTypeName>FormatValidationPlugin</pl:pluginTypeName>
+  <pl:deployName>VeraPDFFormatValidator-1.24</pl:deployName>
+  <pl:className>com.exlibris.rosetta.repository.plugin.formatValidator.pdf.VeraPDFFormatValidatorPlugin</pl:className>
+  <pl:initParameters>
+    <fr:x_form xmlns:fr="http://com/exlibris/digitool/common/forms/xmlbeans">
+    </fr:x_form>
+  </pl:initParameters>
+  <pl:description>VeraPDF Format Validator Plugin</pl:description>
+  <pl:version>1</pl:version>
+  <pl:materialType>DIGITAL</pl:materialType>
+  <pl:module>Preservation</pl:module>
+  <pl:generalType>TASK</pl:generalType>
+  <pl:publicApi>N</pl:publicApi>
+  <pl:implType>java</pl:implType>
+  <pl:contactPerson>
+    <contact_info xmlns="http://www.exlibrisgroup.com/Plugins/1.0/">
+      <contactType>admin</contactType>
+      <firstName>Ex Libris</firstName>
+      <lastName>part of Clarivate</lastName>
+      <telephone1></telephone1>
+      <telephone2></telephone2>
+      <email></email>
+      <address1></address1>
+      <address2></address2>
+      <city></city>
+      <zipCode></zipCode>
+      <country></country>
+    </contact_info>
+  </pl:contactPerson>
+</pl:metadata-config>
