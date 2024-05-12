@@ -5,8 +5,10 @@ import com.exlibris.dps.sdk.techmd.FormatValidationPlugin;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 import org.apache.commons.lang3.StringUtils;
 import org.verapdf.ReleaseDetails;
@@ -17,6 +19,7 @@ import org.verapdf.gf.foundry.VeraGreenfieldFoundryProvider;
 import org.verapdf.pdfa.Foundries;
 import org.verapdf.pdfa.PDFAParser;
 import org.verapdf.pdfa.PDFAValidator;
+import org.verapdf.pdfa.results.TestAssertion;
 import org.verapdf.pdfa.results.ValidationResult;
 
 public class VeraPDFFormatValidatorPlugin implements FormatValidationPlugin {
@@ -48,8 +51,10 @@ public class VeraPDFFormatValidatorPlugin implements FormatValidationPlugin {
 		ValidationResult result = validator.validate(parser);
 		if (result != null) {
 			this.result = result;
-			result.getTestAssertions().forEach(
-					testAssertion -> addError(testAssertion.getMessage()));
+			Map<String,Long> errorMessages = result.getTestAssertions().stream()
+                    .map(TestAssertion::getMessage)
+                    .collect(Collectors.groupingBy(message -> message,LinkedHashMap::new, Collectors.counting()));
+			errorMessages.forEach((message, count) -> addError(message + " (" + count + " occurrences)"));
 		}
 		StringBuffer buffer = new StringBuffer();
 		ReleaseDetails.getDetails().stream()
